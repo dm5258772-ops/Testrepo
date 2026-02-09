@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+body { margin:0; height:100vh; background:linear-gradient(180deg,#ff758c,#ff7eb3); font-family:'Segoe UI',sans-serif; display:flex; justify-content:center; align-items:center; overflow:hidden; }
+.reel { width:100%; max-width:420px; height:100vh; background:rgba(255,255,255,0.15); backdrop-filter:blur(8px); display:flex; flex-direction:column; justify-content:center; text-align:center; padding:30px 20px; color:white; animation:fadeIn 1.5s ease; position:relative; }
+h1 { font-size:30px; margin:5px 0; }
+p { font-size:18px; margin:3px 0; }
+h2 { margin-top:20px; font-size:24px; }
+.buttons { position:relative; height:120px; margin-top:30px; }
+button { border:none; padding:14px 28px; border-radius:30px; font-size:17px; cursor:pointer; margin:5px; }
+#yes { background:white; color:#ff2f6d; }
+#no { background:rgba(255,255,255,0.5); color:black; }
+#final { display:none; font-size:26px; font-weight:bold; margin-top:20px; animation:pop 1s ease; }
+.playButton { 
+  background:#fff; 
+  color:#ff2f6d; 
+  font-weight:bold; 
+  font-size:20px;
+  padding:15px 25px;
+  border-radius:40px;
+  cursor:pointer;
+  margin-top:20px;
+}
+.heart { position:absolute; color:pink; font-size:20px; animation:floatUp 4s linear infinite; opacity:0.8; }
+
+@keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+@keyframes pop {0%{transform:scale(0.6);opacity:0;} 100%{transform:scale(1);opacity:1;}}
+@keyframes floatUp {0%{transform:translateY(0);} 100%{transform:translateY(-800px);opacity:0;}}
+</style>
+</head>
+
+<body>
+
+<div class="reel">
+  <h1>Hey my love ❤️</h1>
+  <p>Every smile of yours feels like a home.</p>
+  <p>You are my calm, my chaos, my favorite feeling.</p>
+
+  <h2>Can you be my Valentine? 💘</h2>
+
+  <div class="buttons">
+    <button id="no">No</button>
+    <button id="yes">Yes 💖</button>
+  </div>
+
+  <div id="final">
+    You are officially and finally<br>
+    the love of <span style="color:#ffe6ec;">sonu Mishra</span> ❤️✨
+  </div>
+
+  <button id="playSong" class="playButton">🎶 Play Love Song</button>
+</div>
+
+<!-- Audio element with an Arijit Singh song -->
+<audio id="song" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const playBtn = document.getElementById("playSong");
+const song = document.getElementById("song");
+
+// Move "No" button randomly
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.left = Math.random() * 260 + "px";
+  noBtn.style.top = Math.random() * 80 + "px";
+});
+
+// Yes click
+yesBtn.addEventListener("click", () => {
+  document.querySelector(".buttons").style.display = "none";
+  document.getElementById("final").style.display = "block";
+  createHearts();
+});
+
+// Play song on click
+playBtn.addEventListener("click", () => {
+  song.play();
+  playBtn.style.display = "none"; // hide after click
+});
+
+// Floating hearts animation
+function createHearts() {
+  for (let i = 0; i < 30; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "0px";
+    heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+}
+</script>
+
+</body>
+</html>
