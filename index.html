@@ -114,6 +114,18 @@
     pointer-events: none;
   }
 
+  a {
+    text-decoration: none;
+    color: #ffe6ec;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  a:hover {
+    color: #ff2f6d;
+    text-shadow: 0 0 10px #ff77a9;
+  }
+
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -153,6 +165,14 @@
   <p>You are my calm, my chaos, my favorite feeling in the universe.</p>
 
   <h2>Will you be my Valentine? 💘</h2>
+
+  <!-- Clickable sentence -->
+  <p>
+    Want something special? 
+    <a href="https://dm5258772-ops.github.io/Testrepo/" target="_blank">
+      Click here to see it 💌
+    </a>
+  </p>
 
   <div class="buttons">
     <button id="no">No</button>
